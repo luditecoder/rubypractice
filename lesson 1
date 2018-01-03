@@ -1,0 +1,72 @@
+class Finale
+   
+   def intro
+   puts "Hello world!"
+    puts "What is your name?"
+    $name = gets.chomp 
+    puts "Hello #{$name}"
+    menu
+    end 
+
+    def menu 
+        puts "Please select what you would like to do. Here is the menu:"
+        puts "\n 1. create a file. \n 2. delete a file \n 3. copy contents of a file to another."
+        option = gets.chomp.to_i
+        if option == 1 then puts create
+        elsif option == 2 then puts delete
+        elsif option == 3 then puts copy
+        end 
+    end 
+    
+    def create
+        puts "What is the name of the file"
+        puts "that you would like to create?"
+        file = gets.chomp
+        if file(exhist) = true 
+        then puts "Sorry a name by that file already exhists"
+        puts "Please pick a different name"
+        create
+        else file.create
+        end
+    end 
+        
+    def delete
+        puts "What is the name of the file"
+        puts "that you would like to delete?"
+        file = gets.chomp
+        if file(exhist) = false 
+        then puts "Sorry a file by that name doesn't exhist"
+        puts "Please pick a different name"
+        delete
+        else file.truncate
+        end
+    end 
+    
+    def copy
+        puts "What is the name of the file"
+        puts "that you would like to copy?"
+        to_copy = gets.chomp
+        puts "What is the name of the file"
+        puts "that you would like to replace with the coppied file?"
+        replaced_file = gets.chomp
+        
+        puts "#{replaced_file} file will be deleted"
+        puts "Is that okay?"
+        okay = gets.chomp
+        if okay == "yes"
+        to_copy.open
+        file_keep = to_copy.read
+        replaced_file.open 
+        replaced_file.write(file_keep)
+        to_copy.close
+        replaced_file.close
+        elsif okay == "no"
+        puts "File copy cancelled"
+        menu
+        end 
+    end
+    
+end 
+ 
+finale = Finale.new 
+finale.intro 
