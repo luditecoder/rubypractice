@@ -24,3 +24,17 @@ end
 end 
 puts decoded
 =end 
+
+puts "what is the sentance that you would like to encrypt?"
+sentance = gets.chomp.to_s 
+puts "what is the number that you want to shift by?"
+shift = gets.chomp.to_i 
+
+
+
+
+ascii = sentance.chars.map(&:ord)
+shifted = ascii.map { |c| c + shift }
+shifted.map { |c| c.chr }. join 
+
+
