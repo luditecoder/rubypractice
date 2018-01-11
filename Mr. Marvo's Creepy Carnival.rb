@@ -49,7 +49,7 @@ end
       def stage_props
           puts "You walk over to the props. Amongst the sequines glitter and barbells you notice something shiny silver."
           puts " Now what?"
-          what = $stdin.gets.chomp
+          what = $stdin.gets.chomp.to_s
             if what.include?("examine")
               puts "As you dig through the props, you discover that the shiny silver is actually a sword."
               puts "Do you want to carry?"
