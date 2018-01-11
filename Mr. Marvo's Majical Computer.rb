@@ -12,6 +12,7 @@ elsif choice == "swap hands"
 swap_hands
 else puts "Sorry I'm afraid that majic is too dangerous to unleash on the world."
 end 
+end
 
 
 
