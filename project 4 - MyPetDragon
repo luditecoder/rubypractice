@@ -1,0 +1,137 @@
+class Dragon
+  
+  def initialize(name)
+    @name = name
+    @tummy = 100
+    @bladder = 0 
+    @asleep = false
+    @mood = 10
+    @age = 1
+  end 
+  
+  def options 
+    puts "What do you want to do with #{@name} today?"
+    activity = gets.chomp
+    case activity 
+    when "feed"
+      feed 
+    when "sleep"
+      sleep
+    when "play"
+      play
+    when "potty"
+      potty
+    when "check"
+      check
+    when "walk"
+      walk
+    end 
+  end 
+    
+  def feed 
+    puts "You feed your pet dragon #{@name}."
+    puts "#{@name} is happy and sleepy."
+    @tummy = 100
+    @mood = 2
+    puts "Do you want to put #{@name} to sleep?"
+    sleepy = $stdin.gets.chomp
+    if sleepy == "yes"
+      @mood = 10
+      sleepy
+    elsif sleepy == "no"
+    @mood = 0 
+    end 
+    pass_time
+    options
+  end 
+
+  def sleep 
+    puts "#{@name} is sleepy."
+    puts "You rock #{@name} to sleep by singing:"
+    puts "Happy dragon, sleepy dragon"
+    puts "Roar...roar..roar"
+    puts "scaley dragon, pretty dragon"
+    puts "Little ball of roar..."
+    @asleep = true 
+    pass_time
+    puts "You baby dragon wakes up again"
+    @alseep = false
+    pass_time
+    options
+  end 
+  
+  def play 
+    puts "You play with #{@name}."
+    puts "He is happy and coughs little ball of fire."
+    @mood = 10 
+    pass_time
+    options
+  end
+  
+  def potty 
+    puts "#{@name} has to go to the bathroom."
+    puts "You put the dragon in the litter box."
+    puts "A little while later he is happy again."
+    @bladder = 0 
+    pass_time
+    options
+  end 
+  
+  def walk
+    puts "You take #{@name} for a walk. In front of you is an old lady with a dog."
+    puts "#{@name} sees the dog and starts pulling at the leash to play with the dog."
+    puts "Do you walk over to the dog?"
+    dog = $stdin.gets.chomp
+      if dog == "yes"
+        puts "You and #{@name} walk over to the dog. For a few minutes, your dragon and the dog play together but then ..."
+        puts "#{@name} eats the dog. You run away from the old lady as she tries to beat you with her cane."
+      elsif dog == "no"
+        puts "Probably wise."
+      end 
+      pass_time
+      options 
+  end 
+    
+  def check
+    puts "#{@name} is #{@age} years old. He is this full #{@tummy} and #{@bladder} with a mood of #{@mood}."
+    options
+  end 
+  
+  private 
+  
+  def pass_time
+    @tummy -= 10
+    @bladder += 10
+    @mood -= 1
+    @age += 1 
+      if @mood <= 0 
+        puts "#{@name} looks unhappy."
+        puts "Your dragon is turning red... there seems to be steam comming off of him."
+        puts "oh no... he is taking a deep breath"
+        puts "Is he about to breath fire???"
+        puts "..."
+        puts "..."
+        puts "Sorry you failed to keep your dragon happy so he incenerated you."
+        exit(0)
+      end 
+      if @bladder >= 100
+        puts "Whoops... #{@name} couldn't wait that long. Hope you enjoy cleaning up messes."
+      end 
+      if @tummy < 20 
+        puts " #{@name} is hungy. You should feed him soon."
+      end 
+      if @tummy == 0 
+        puts "Whoops you waited to long. He gave up and just ate you!!"
+        exit(0)
+      end 
+     
+  end 
+end 
+
+
+puts "Congratulations a beautiful baby dragon was born today!"
+puts "What would you like to name your new baby dragon?"
+name = $stdin.gets.chomp
+dragon = Dragon.new(name)
+
+dragon.options  
