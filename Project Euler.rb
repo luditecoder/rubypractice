@@ -25,17 +25,16 @@ number = []
  
 #create place to store factors
 factors = []
-prime_factors = []
+@prime_factors = []
 #divide number by all smaller numbers to test factors for prime
 number.each do |x| factors.push(x) if 13195 % x == 0 end 
 print factors
 
 
-def prime_factors(num)
+def prime_factor(num)
+  1.upto(num-1){|n| @prime_factors.push(num) if num % n == 1 }
+end 
   
-if 
-  1.upto(num) {|n| num % n == 1 }
-  
-factors.each{ |n| prime_factors.push(n) if 13195 % n == 1}
+factors.each{|x| prime_factor(x)}
 
-print prime_factors
+print @prime_factors
