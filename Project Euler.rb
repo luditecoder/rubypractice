@@ -19,25 +19,23 @@ puts fibonacci[5]
 #The prime factors of 13195 are 5, 7, 13 and 29.
 #What is the largest prime factor of the number 600851475143 ?
 
+#generate numbers to test for prime factors 
+number = []
+1.upto(13195) {|x| number.push(x)}
+ 
+#create place to store factors
 factors = []
-
-
-
-1.upto(13195) {|p| factors.push(p) if 13195 % p == 0 }
-
+prime_factors = []
+#divide number by all smaller numbers to test factors for prime
+number.each do |x| factors.push(x) if 13195 % x == 0 end 
 print factors
-factors.each {|x| factors.delete!(x) if x % 2 == 0 unless x / 2 == 1}
- print factors 
-factors.each {|x| factors.delete!(x) if x % 3 == 0 unless x / 3 == 1}
- print factors 
-factors.each {|x| factors.delete!(x) if x % 4 == 0 unless x / 4 == 1} 
- print factors 
-factors.each {|x| factors.delete(x) if x % 5 == 0 unless x / 5 == 1}
- print factors 
-factors.each {|x| factors.delete!(x) if x % 6 == 0 unless x / 6 == 1} 
- print factors 
-factors.each {|x| factors.delete!(x) if x % 8 == 0 unless x / 8 == 1} 
- print factors 
- factors.each {|x| factors.delete!(x) if x % 9 == 0 unless x / 9 == 1}
- print factors 
 
+
+def prime_factors(num)
+  
+if 
+  1.upto(num) {|n| num % n == 1 }
+  
+factors.each{ |n| prime_factors.push(n) if 13195 % n == 1}
+
+print prime_factors
