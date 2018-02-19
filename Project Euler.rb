@@ -38,3 +38,22 @@ end
 factors.each{|x| prime_factor(x)}
 
 print @prime_factors
+
+#Project Euler Question 4 
+#Find the largest palindrome made from the product of two 3-digit numbers.
+#creates the empty hash to hold all the palindromes
+@palindrome = []
+
+#generates the multiples of all three digit numbers
+100.upto(999){|n| 
+n.upto(999) {|j| p = n * j 
+#determines if the number is a palindrome
+  if p.to_s.reverse == p.to_s
+     @palindrome.push(p)
+  end 
+}}
+
+print @palindrome
+#gets largest palindrome
+answer = @palindrome.max
+print answer 
