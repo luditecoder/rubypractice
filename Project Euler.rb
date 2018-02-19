@@ -10,11 +10,33 @@ multiples.each {|x| sum += x }
 puts "Here is the answer"
 print sum
 
-#Euler 2
-#By considering the terms in the Fibonacci sequence whose values do not exceed four million, find the sum of the even-valued terms.
-fibonacci = Hash.new{|h,k| h[k] = k < 2 ? k : h[k-1] = h[k-2]}
-puts fibonacci[5]
+sum = 0
+array.each { |a| sum+=a }
 
+#Euler 2 
+#find the sum of the fibonacci sereis up to 4 million
+#create hash to hold fib series up to 4 million
+@fib_series = [1,2]
+#method to generate next numbers in fib series
+def create_fib
+  new_value = @fib_series[0] + @fib_series[1]
+  @fib_series.push(new_value)
+  @fib_series = @fib_series.sort.reverse
+  print @fib_series
+end
+#runs method until 4 million is reached
+until @fib_series.max >= 4000000
+create_fib 
+end 
+#gets even fib numbers
+even_fibs = []
+@fib_series.each{|n| even_fibs.push(n) if n % 2 == 0} 
+print even_fibs 
+#calculates the sum of the array
+sum = 0
+even_fibs.each{ |a| sum+=a }
+print sum 
+  
 #Euler 3
 #The prime factors of 13195 are 5, 7, 13 and 29.
 #What is the largest prime factor of the number 600851475143 ?
