@@ -96,6 +96,33 @@ until factors.all?{ |n| @min_number % n == 0}
 @min_number += 20
 #puts counter number so you can see whats happening. 
 puts @min_number
-
 end 
+
+
+
+#Project Euler Question 6
+#Find the difference between the sum of the squares of the first one hundred natural numbers and the square of the sum.
+
+#create blank hash to store all the squares
+sum_of_squares = []
+#block puts squares in hash 
+0.upto(100){|x| sum_of_squares.push(x**2) }
+print sum_of_squares
+#sums all of the squares 
+sum1 = 0
+sum_of_squares.each{|n| sum1 += n}
+puts sum1
+
+#summation of all integers
+sum2 = 0
+
+0.upto(100){|x| sum2 += x}
+print sum2
+#squares the sum 
+square_of_sum = sum2 ** 2 
+puts square_of_sum
+
+difference = square_of_sum - sum1 
+puts difference 
+
 
