@@ -79,3 +79,22 @@ print @palindrome
 #gets largest palindrome
 answer = @palindrome.max
 print answer 
+
+#Project Euler 5
+#What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?
+
+#create max number possible 
+factors = []
+1.upto(10){|x| factors.push(x)}
+print factors 
+
+def min_number
+@min_number = 1 
+factors.each{ |n| @min_number += 1 if @min_number % n != 1}
+print min_number 
+end 
+
+until factors.each{|n| @min_number % n == 1}
+min_number 
+end 
+
