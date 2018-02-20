@@ -83,18 +83,19 @@ print answer
 #Project Euler 5
 #What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?
 
-#create max number possible 
+#create place to hold all numbers tested as multiples
 factors = []
-1.upto(10){|x| factors.push(x)}
+1.upto(20){|x| factors.push(x)}
 print factors 
 
-def min_number
-@min_number = 1 
-factors.each{ |n| @min_number += 1 if @min_number % n != 1}
-print min_number 
-end 
+#set a counter that we will increase when all factors aren't multiples
+@min_number = 1
 
-until factors.each{|n| @min_number % n == 1}
-min_number 
+#Adds counter until all factors are divisible 
+until factors.all?{ |n| @min_number % n == 0}
+@min_number += 20
+#puts counter number so you can see whats happening. 
+puts @min_number
+
 end 
 
